@@ -1,0 +1,180 @@
+/* ////////////////////////////////////////////////////
+// 0. IMPORTS
+// //////////////////////////////////////////////////// */
+@import url('https://plusinsta.github.io/discord-plus/src/i11n.css');
+@import url('https://plusinsta.github.io/discord-plus/src/DiscordPlus-extras.theme.css');
+
+/* ////////////////////////////////////////////////////
+// 1. BACKDROP + TRANSPARENCY VARIABLES
+// //////////////////////////////////////////////////// */
+:root {
+	--dplus-blur-scale: 100;
+	--dplus-blur-ui: 2px;
+	--dplus-blur-popout: 3px;
+	--blurcalc-popout: blur(calc(var(--dplus-blur-popout) / 100 * var(--dplus-blur-scale)));
+	--blurcalc-ui: blur(calc(var(--dplus-blur-ui) / 100 * var(--dplus-blur-scale)));
+}
+
+.theme-dark {
+	--dplus-backdrop: url(https://i.imgur.com/3AiL3yN.png);
+	--dplus-background-color-hue: 320;
+	--dplus-background-color-saturation-amount: 1;
+	--dplus-background-color-lightness-amount: 1;
+	--dplus-background-color-alpha: 0.8;
+}
+
+.theme-light {
+	--dplus-backdrop: url(https://i.imgur.com/3AiL3yN.png);
+	--dplus-background-color-hue: 320;
+	--dplus-background-color-saturation-amount: 1;
+	--dplus-background-color-lightness-amount: 1;
+	--dplus-background-color-alpha: 0.8;
+}
+
+.theme-dark {
+	--dplus-background-color-lightness-025: 2.5%;
+	--dplus-background-color-lightness-050: 5.0%;
+	--dplus-background-color-lightness-075: 7.5%;
+	--dplus-background-color-lightness-100: 10.0%;
+	--dplus-background-color-lightness-125: 12.5%;
+}
+
+.theme-light {
+	--dplus-background-color-lightness-025: 97.5%;
+	--dplus-background-color-lightness-050: 95.0%;
+	--dplus-background-color-lightness-075: 92.5%;
+	--dplus-background-color-lightness-100: 90.0%;
+	--dplus-background-color-lightness-125: 87.5%;
+}
+
+.theme-dark,
+.theme-light {
+	--dplus-background-color-saturation-factor: calc(var(--dplus-background-color-saturation-amount) * var(--saturation-factor, 1));
+
+	--dplus-bgc-ui-base: hsla(
+		var(--dplus-background-color-hue),
+		calc(var(--dplus-background-color-saturation-factor) * 50%),
+		calc(var(--dplus-background-color-lightness-amount) * var(--dplus-background-color-lightness-025)),
+		calc(var(--dplus-background-color-alpha) * 100%)
+	);
+
+	--dplus-bgc-ui-base-hover: hsla(
+		var(--dplus-background-color-hue),
+		calc(var(--dplus-background-color-saturation-factor) * 60%),
+		calc(var(--dplus-background-color-lightness-amount) * var(--dplus-background-color-lightness-050)),
+		calc(var(--dplus-background-color-alpha) * 110%)
+	);
+
+	--dplus-bgc-chatmsg: hsla(
+		var(--dplus-background-color-hue),
+		calc(var(--dplus-background-color-saturation-factor) * 50%),
+		calc(var(--dplus-background-color-lightness-amount) * var(--dplus-background-color-lightness-100)),
+		calc(var(--dplus-background-color-alpha) * 110%)
+	);
+
+	--dplus-bgc-popout: hsla(
+		var(--dplus-background-color-hue),
+		calc(var(--dplus-background-color-saturation-factor) * 50%),
+		calc(var(--dplus-background-color-lightness-amount) * var(--dplus-background-color-lightness-025)),
+		calc(var(--dplus-background-color-alpha) * 100%)
+	);
+}
+
+/* ////////////////////////////////////////////////////
+// 2. WINDOW BACKGROUND
+// //////////////////////////////////////////////////// */
+#app-mount {
+	background: var(--dplus-backdrop);
+	background-size: cover;
+	background-position: center;
+}
+
+body {
+	background-color: transparent;
+}
+
+.appMount__51fd7,
+.app__160d8,
+#app-mount .bg__960e4 {
+	background-color: transparent;
+}
+
+.bd-transparency,
+.bd-transparency #app-mount {
+	background: transparent;
+}
+
+/* ////////////////////////////////////////////////////
+// 3. MAIN TRANSPARENT LAYERS
+// //////////////////////////////////////////////////// */
+.sidebar__5e434 + main,
+.sidebar__5e434 + div,
+.tabBody__133bf,
+.nowPlayingColumn__133bf,
+.container__133bf .container__9293f.themed__9293f,
+.container__7d20c,
+#app-mount .chat_f75fb0,
+.chatContent_f75fb0,
+.replying__5126c:before,
+.chatGradient__36d07,
+.chatGradientBase__36d07,
+.container__01ae2:not(.floating__01ae2),
+.visual-refresh .container_f369db,
+.form_d9be46 .input__0ed4f,
+.member__5d473,
+.member_c8ffbb,
+.members_c8ffbb,
+.layer__960e4,
+.standardSidebarView__23e6b,
+.contentRegionScroller__23e6b,
+.sidebarRegionScroller__23e6b,
+.visual-refresh .standardSidebarView__23e6b,
+.layer_bc663c,
+.root__49fc1,
+.videoWrapper__2f4f7,
+.callContainer_cb9592,
+.visual-refresh .root_bfe55a {
+	background: transparent !important;
+	background-color: transparent !important;
+}
+
+/* ////////////////////////////////////////////////////
+// 4. SEMI-TRANSPARENT PANELS
+// //////////////////////////////////////////////////// */
+.container__9293f.themed__9293f,
+.container_c8ffbb,
+.bar_c38106,
+#app-mount .standardSidebarView__23e6b .contentRegion__23e6b,
+#app-mount .standardSidebarView__23e6b .sidebarRegion__23e6b,
+.wrapper_cb9592,
+.background_fb62e2 {
+	background-color: var(--dplus-bgc-ui-base) !important;
+}
+
+.autocomplete__13533,
+#app-mount .container__55c99,
+#app-mount .calendarPicker_d27f17 .react-datepicker {
+	background-color: var(--dplus-bgc-popout) !important;
+}
+
+:is(.messageListItem__5126c, .quotedChatMessage__5126c) .message__5126c,
+.visual-refresh .channelTextArea_f75fb0,
+.scrollableContainer__74017,
+.container__00de6 {
+	background: var(--dplus-bgc-chatmsg);
+}
+
+/* ////////////////////////////////////////////////////
+// 5. OPTIONAL BLUR
+// //////////////////////////////////////////////////// */
+.bar_c38106,
+.container_c8ffbb,
+#app-mount .standardSidebarView__23e6b .contentRegion__23e6b,
+#app-mount .standardSidebarView__23e6b .sidebarRegion__23e6b,
+.autocomplete__13533,
+#app-mount .container__55c99,
+.scrollableContainer__74017,
+.container__00de6 {
+	backdrop-filter: var(--blurcalc-ui);
+	-webkit-backdrop-filter: var(--blurcalc-ui);
+}
